@@ -12,7 +12,7 @@ const initDb = (callback) => {
     }
     MongoClient.connect(process.env.MONGO_URL)
         .then((client) => {
-            database = client.db(process.env.MONGO_DB_NAME || "cse341");
+            database = client.db(process.env.MONGO_DB_NAME || "cseproject");
             callback(null, database);
         })
         .catch((err) => {

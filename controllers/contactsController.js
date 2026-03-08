@@ -18,11 +18,19 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
   try {
+    // Added: validate ID format before using it
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ 
+        error: 'Invalid ID format. Must be a 24-character hex string.' 
+      });
+    }
+
     const contactId = new ObjectId(req.params.id);
     const result = await mongodb
       .getDb()
       .collection('contacts')
       .findOne({ _id: contactId });
+
     if (!result) {
       return res.status(404).json({ message: 'Contact not found' });
     }
