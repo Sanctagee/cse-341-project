@@ -1,4 +1,4 @@
-const mongodb = require('../database');
+const mongodb = require('../data/database');
 const { ObjectId } = require('mongodb');
 
 const getAll = async (req, res) => {
@@ -11,6 +11,7 @@ const getAll = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
   } catch (err) {
+    console.error('Error fetching contacts:', err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -28,6 +29,7 @@ const getSingle = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
   } catch (err) {
+    console.error('Error fetching single contact:', err);
     res.status(500).json({ error: err.message });
   }
 };

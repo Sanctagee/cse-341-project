@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongodb = require('./data/database');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
@@ -10,16 +10,22 @@ app.use(express.json());
 app.use('/', require('./routes/index'));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the CSE 341 Project!');
+  res.send('Welcome to the CSE 341 Project, by GabbyTech!');
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 mongodb.initDb((err) => {
   if (err) {
-    console.log(err);
+    console.error('Database connection failed:', err);
+    process.exit(1);
   } else {
     app.listen(port, () => {
-      console.log(`Database is listening and node is running on port ${port}`);
+      console.log(`Database connected and node is running on port ${port}`);
     });
   }
 });
-
