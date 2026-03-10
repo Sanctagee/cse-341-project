@@ -1,0 +1,40 @@
+### Get all contacts
+GET http://localhost:8080/contacts
+
+###
+
+### Get single contact - replace the id with a real one from your database
+GET http://localhost:8080/contacts/69ac4a83448364c972d47d89
+
+###
+
+### Create a new contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Tony",
+  "lastName": "Gabito",
+  "email": "tony@example.com",
+  "favoriteColor": "orange",
+  "birthday": "1990-01-15"
+}
+
+###
+
+### Update a contact - replace the id with a real one
+PUT http://localhost:8080/contacts/69ac4a83448364c972d47d89
+Content-Type: application/json
+
+{
+  "firstName": "Tony",
+  "lastName": "Gabito",
+  "email": "tony.updated@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-15"
+}
+
+###
+
+### Delete a contact - replace the id with a real one
+DELETE http://localhost:8080/contacts/69ac4a83448364c972d47d89
