@@ -55,7 +55,10 @@
       <p class="subtitle">
         A clean, scalable RESTful API powered by <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MongoDB Atlas</strong> — built with MVC architecture.
       </p>
-      <a href="/contacts" class="cta-btn">View All Contacts →</a>
+      <div class="hero-buttons">
+        <a href="/contacts" class="cta-btn">View All Contacts →</a>
+        <a href="/api-docs" class="cta-btn secondary">API Docs →</a>
+      </div>
     </div>
   </header>
 
@@ -90,16 +93,37 @@
     <section class="endpoints-section">
       <h2 class="section-title">API Endpoints</h2>
       <div class="endpoints">
+
         <div class="endpoint">
           <span class="method get">GET</span>
           <span class="path">/contacts</span>
           <span class="desc">Returns all contacts in the database</span>
         </div>
+
         <div class="endpoint">
           <span class="method get">GET</span>
           <span class="path">/contacts/:id</span>
           <span class="desc">Returns a single contact by MongoDB ID</span>
         </div>
+
+        <div class="endpoint">
+          <span class="method post">POST</span>
+          <span class="path">/contacts</span>
+          <span class="desc">Creates a new contact in the database</span>
+        </div>
+
+        <div class="endpoint">
+          <span class="method put">PUT</span>
+          <span class="path">/contacts/:id</span>
+          <span class="desc">Updates an existing contact by MongoDB ID</span>
+        </div>
+
+        <div class="endpoint">
+          <span class="method delete">DELETE</span>
+          <span class="path">/contacts/:id</span>
+          <span class="desc">Deletes a contact by MongoDB ID</span>
+        </div>
+
       </div>
     </section>
 
